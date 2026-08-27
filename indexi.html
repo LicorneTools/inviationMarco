@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Une Invitation Particulière...</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,700;1,400&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* Bleu Bridgerton & tons crème */
+            background: linear-gradient(135deg, #e3edf7 0%, #d0e1f9 50%, #f9f6f0 100%);
+            color: #2b3a4a;
+            position: relative;
+            padding: 20px;
+        }
+
+        /* Bordure intérieure dorée et fleurie */
+        .card {
+            background: #ffffff;
+            border: 2px solid #d4af37;
+            border-radius: 4px;
+            padding: 45px 35px;
+            max-width: 520px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(43, 58, 74, 0.1);
+            position: relative;
+            outline: 1px solid #d4af37;
+            outline-offset: -8px;
+        }
+
+        .header-tag {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #b8860b;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: #1a2a3a;
+            margin-bottom: 30px;
+        }
+
+        /* Boutons élégants */
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            min-height: 90px;
+            margin-top: 10px;
+        }
+
+        button {
+            font-family: 'Cormorant Garamond', serif;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            outline: none;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+        }
+
+        .btn-yes {
+            background: #1a2a3a;
+            color: #f9f6f0;
+            padding: 14px 34px;
+            font-size: 1.1rem;
+            border: 1px solid #d4af37;
+            box-shadow: 0 4px 12px rgba(26, 42, 58, 0.15);
+        }
+
+        .btn-yes:hover {
+            background: #d4af37;
+            color: #1a2a3a;
+        }
+
+        .btn-no {
+            background: transparent;
+            color: #7a8b9e;
+            padding: 14px 28px;
+            font-size: 0.95rem;
+            border: 1px solid #7a8b9e;
+        }
+
+        .btn-no:hover {
+            border-color: #1a2a3a;
+            color: #1a2a3a;
+        }
+
+        /* Section détails */
+        .details-section {
+            display: none;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.6s ease;
+        }
+
+        .details-section.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .thank-you-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.5rem;
+            color: #1a2a3a;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-style: italic;
+            color: #b8860b;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+        }
+
+        .event-info {
+            text-align: left;
+            background: #f9f6f0;
+            padding: 25px;
+            border: 1px solid #e3edf7;
+            border-left: 4px solid #d4af37;
+            margin-top: 10px;
+        }
+
+        .event-info p {
+            margin-bottom: 14px;
+            font-size: 0.95rem;
+            color: #334455;
+            line-height: 1.6;
+        }
+
+        .event-info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .event-info strong {
+            color: #1a2a3a;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div id="question-view">
+            <div class="header-tag">Ordre du Jour</div>
+            <h1>Accorderez-vous l'honneur d'être ma cavalière pour la soirée du 31 Octobre ?</h1>
+            <div class="btn-container">
+                <button class="btn-yes" id="btnYes">Oui, avec plaisir</button>
+                <button class="btn-no" id="btnNo">Non</button>
+            </div>
+        </div>
+
+        <div id="details-view" class="details-section">
+            <h2 class="thank-you-title">C'est merveilleux !</h2>
+            <div class="subtitle">Une soirée d'exception s'annonce...</div>
+            
+            <div class="event-info">
+                <p>C'est un <strong>gala de clôture</strong> d'envergure, organisé par une cliente.</p>
+                <p>Des invités d'exception viendront des quatre coins de l'océan Indien : <strong>Maurice, La Réunion, les Seychelles et Madagascar</strong>.</p>
+                <p><strong>🕒 Horaires :</strong> 19h30 – 22h30</p>
+                <p><strong>📍 Lieu :</strong> Rova Manjakamiadana</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const btnYes = document.getElementById('btnYes');
+        const btnNo = document.getElementById('btnNo');
+        const questionView = document.getElementById('question-view');
+        const detailsView = document.getElementById('details-view');
+
+        let yesScale = 1;
+
+        btnNo.addEventListener('click', () => {
+            yesScale += 0.25;
+            btnYes.style.transform = `scale(${yesScale})`;
+        });
+
+        btnYes.addEventListener('click', () => {
+            questionView.style.display = 'none';
+            detailsView.classList.add('active');
+        });
+    </script>
+</body>
+</html>
